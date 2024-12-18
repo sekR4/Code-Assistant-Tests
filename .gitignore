@@ -1,2 +1,3 @@
 .venv
 *.lock
+img-to-text-with-continue.dev/*
