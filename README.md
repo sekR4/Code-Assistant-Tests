@@ -83,7 +83,7 @@ root/
 ### Implementation notes
 
 -   Use Llama 3.2 Vison https://ollama.com/library/llama3.2-vision (`ollama pull llama3.2-vision`)
--   Install Node `brew install node` & inside `frontend/` run `npx create-next-app@latest`
+-   Install Node `brew install node` &  run `npx create-next-app@latest`. Name the app `frontend`
 -   Within `backend/` run `uv init` && `uv add fastapi` (don't use pip)
 
 ## Results & Conclusion
