@@ -12,9 +12,11 @@ Build small web app that accepts an image as input through an UI and returns a d
 
 ## Brief Product Requirements
 
+> Note: We'll use these requirements as custom instructions for the code assistant within `.continuerules`, `.github/copilot-instructions.md` and `.windsurfrules`.
+
 ### Project overview
 
-A small nice looking web app that accepts an image as input through an UI and returns a description of the image.
+A small locally running nice looking web app that accepts an image as input through an UI and returns a description of the image.
 Technologies Used:
 
 -   Next.js 15+ as framework
