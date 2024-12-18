@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import ResultDisplay from './ResultDisplay';
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const ACCEPTED_FILE_TYPES = {
@@ -12,6 +13,8 @@ const ACCEPTED_FILE_TYPES = {
 export default function FileUpload() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
@@ -26,20 +29,32 @@ export default function FileUpload() {
     try {
       setIsLoading(true);
       setError(null);
+      setDescription(null);
+      setImageUrl(null);
       
-      // TODO: Implement API call to backend
-      // const formData = new FormData();
-      // formData.append('file', file);
-      // const response = await fetch('http://localhost:8000/upload', {
-      //   method: 'POST',
-      //   body: formData,
-      // });
+      // Create URL for preview
+      const imageUrl = URL.createObjectURL(file);
+      setImageUrl(imageUrl);
+      
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const response = await fetch('http://localhost:8000/api/describe-image', {
+        method: 'POST',
+        body: formData,
+      });
 
-      // For now, just simulate a delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error('Failed to process image');
+      }
+
+      const data = await response.json();
+      setDescription(data.description);
       
     } catch (err) {
-      setError('Failed to upload file. Please try again.');
+      setError('Failed to process image. Please try again.');
+      setDescription(null);
+      setImageUrl(null);
     } finally {
       setIsLoading(false);
     }
@@ -97,6 +112,8 @@ export default function FileUpload() {
           {error}
         </div>
       )}
+
+      <ResultDisplay description={description} error={error} imageUrl={imageUrl} />
     </div>
   );
 }
