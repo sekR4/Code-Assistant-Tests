@@ -1,3 +1,15 @@
+## Start & Stop Web App
+
+Start backend and frontend:
+```bash
+cd backend && uv run uvicorn main:app --reload
+cd frontend && npm run dev
+```
+
+Stop all servers:
+```bash
+pkill -9 -f "uvicorn|next"
+```
 
 ## Prompts
 <!-- TODO: add prompts and additonal commands to /README.md later -->
@@ -47,4 +59,3 @@ Worked all nicely :)
 Shut down uvicorn and npm server via:
 ```bash
 pkill -9 -f "uvicorn|next"
-```
