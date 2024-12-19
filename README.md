@@ -95,7 +95,7 @@ Example prompt (so that you can read the conversation history better):
 
 > Write a haiku
 
-I do the setup myself to not distract the model and to set some structure.
+I do the setup myself to not distract the model and to set some structure. Note: for each ai tool reference to files/folders via '@'. Don't just copy the prompt. Should help the model understand the context better.
 
 ### 1. File Upload
 
@@ -110,8 +110,24 @@ Initial prompt:
 
 > I created the nextjs project within `img-to-text-with-<INSERT_TOOL_NAME>/frontend`. Help me implementing the **File Upload** feature. Note, we'll work on `img-to-text-with-<INSERT_TOOL_NAME>/backend` after that.
 
-Follow up prompts:
-...
+**Follow up commands & prompts:**
+Nothing to do with **Windsurf** ✅.
+
+**Continue** works differently. Have to use the Chat and first create files by myself.
+
+```bash
+mkdir -p frontend/app/components
+touch frontend/app/components/FileUploader.tsx
+code frontend/app/components/FileUploader.tsx
+```
+
+Then I pushed 'Apply' for the first code snippet. The FileUploader had additional dependencies which the model mentioned further below in the chat. Had to
+
+```bash
+cd frontend && npm install react-toastify
+```
+
+The model also wrote I should create a page `pages/index.tsx`. But within frontend/app there was already a default `page.tsx`. I just opened it and pushed 'Apply'. Fixed the import path for `FileUploader` and removed an underlined word `newWindow`. Nothing red.
 
 Check if it worked
 
@@ -119,6 +135,22 @@ Check if it worked
 npm run dev
 open http://localhost:3000
 ```
+
+Encountered this error with Continue and copy&pasted it into the chat.
+
+```
+⨯ ./app/components/FileUploader.tsx:1:17
+Ecmascript file had an error
+> 1 | import React, { useState } from 'react';
+    |                 ^^^^^^^^
+  2 | import { toast } from 'react-toastify';
+  3 |
+  4 | const FileUploader = () => {
+
+You're importing a component that needs `useState`. This React hook only works in a client component. To fix, mark the file (or its parent) with the `"use client"` directive.
+```
+
+The model suggested to add "use client" on top of `FileUploader.tsx`. That was the fix. Frontend worked as expected.
 
 ### 2. Image to Text
 
