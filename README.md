@@ -194,7 +194,17 @@ Then it worked.
 
 > Frontend seems to work and the backend as well (both are turned off at the moment). Now let's work on **Result Display**.
 
-Follow up prompt:
+Follow up commands & prompt Continue:
+
+> Can't u handle the changes u suggested within @page.tsx, @FileUploader.tsx and @main.py?
+
+It basically showed me content of the files I mentioned. Only FileUploader.tsx contained changes I 'Apply'd. Had to `npm install axios` ... Why?
+
+> Can't click on the Upload button.
+
+Then several iterations more. Gave up. ❌
+
+Follow up commands & prompt Windsurf:
 
 > It should all work at http://localhost:3000. Also note that npm server and fastapi have to be running so that i can try
 

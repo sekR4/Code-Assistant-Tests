@@ -1,10 +1,12 @@
 "use client"
+import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const FileUploader = () => {
     const [file, setFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
+    const [description, setDescription] = useState('');
 
     const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
@@ -29,19 +31,27 @@ const FileUploader = () => {
     };
 
     const handleSubmit = async () => {
-        if (!validateFile()) {
-            toast.error("Invalid file. Please upload a PNG or JPEG image under 5MB.");
-            return;
-        }
-
+        if (!file || !validateFile()) return;
         setLoading(true);
 
-        // Simulate processing
-        setTimeout(() => {
+        try {
+            console.log("Uploading file:", file);
+            
+            const formData = new FormData();
+            formData.append('file', file!);
+            const response = await axios.post('http://localhost:8000/describe-image/', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
+
+            setDescription(response.data.description);
+            toast.success('Image description retrieved successfully!');
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            toast.error('Failed to retrieve image description.');
+        } finally {
             setLoading(false);
-            toast.success('File uploaded successfully!');
-            setFile(null); // Reset file state after "upload"
-        }, 2000);
+            setFile(null);
+        }
     };
 
     return (
@@ -74,6 +84,12 @@ const FileUploader = () => {
                 </button>
             )}
             {loading && <p>Loading...</p>}
+            {description && (
+                <div className="mt-4">
+                    <textarea value={description} readOnly className="w-full mt-2 p-2 border rounded shadow"></textarea>
+                    <button onClick={() => navigator.clipboard.writeText(description)}>Copy</button>
+                </div>
+            )}
         </div>
     );
 };
