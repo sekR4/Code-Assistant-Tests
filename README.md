@@ -95,7 +95,7 @@ Example prompt (so that you can read the conversation history better):
 
 > Write a haiku
 
-I do the setup myself to not distract the model and to set some structure. Note: for each ai tool reference to files/folders via '@'. Don't just copy the prompt. Should help the model understand the context better.
+I do the setup myself to not distract the model and to set some structure. Note: for each ai tool reference to files/folders via '@' or '#'. Don't just copy the prompt. Should help the model understand the context better.
 
 ### 1. File Upload
 
@@ -110,7 +110,8 @@ Initial prompt:
 
 > I created the nextjs project within `img-to-text-with-<INSERT_TOOL_NAME>/frontend`. Help me implementing the **File Upload** feature. Note, we'll work on `img-to-text-with-<INSERT_TOOL_NAME>/backend` after that.
 
-**Follow up commands & prompts:**
+<details>
+<summary> Follow up commands & prompts</summary>
 Nothing to do with **Windsurf** ✅.
 
 **Continue** works differently. Have to use the Chat and first create files by myself.
@@ -152,6 +153,8 @@ You're importing a component that needs `useState`. This React hook only works i
 
 The model suggested to add "use client" on top of `FileUploader.tsx`. That was the fix. Frontend worked as expected.
 
+</details>
+
 ### 2. Image to Text
 
 Preparation
@@ -166,7 +169,8 @@ Initial prompt:
 
 > We've created a nice looking UI. Now let's move on to **Image to Text**. I initialized the uv project first and installed FastAPI for the backend (`cd backend && uv init && uv add fastapi`). Create the fastapi backend. It should accept an image as input from the frontend, send the image to the ollama model (you have an example for this) and receive the response from ollama. I also provided a test_image.png in `backend/`.
 
-Follow up commands & prompts:
+<details>
+<summary> Follow up commands & prompts:</summary>
 Windsurf did all. Had nothing to do.✅
 
 Continue wanted me to work.
@@ -190,11 +194,15 @@ Changed `return {"description": response["description"]}` to `return {"descripti
 
 Then it worked.
 
+</details>
+
 ### 3. Result Display
 
 > Frontend seems to work and the backend as well (both are turned off at the moment). Now let's work on **Result Display**.
 
-Follow up commands & prompt Continue:
+<details>
+
+<summary>Follow up commands & prompt Continue:</summary>
 
 > Can't u handle the changes u suggested within @page.tsx, @FileUploader.tsx and @main.py?
 
@@ -215,17 +223,28 @@ uv run uvicorn main:app --reload
 npm run dev
 ```
 
+</details>
+
 Follow up prompt:
 
 > In general it works. But it would also be nice to see the image which was uploaded. Let's add that.
 
 ## Results & Conclusion
 
-While working with Continue:
+Working with Windsurf ✅:
+
+-   Holy!
+-   Fast iterations. Fixed issues automagically.
+-   Created a nice looking web app that did what I wanted.
+
+Working with Continue ❌:
 
 -   Macbook got loud sometimes. Had to `brew services restart ollama` or stop ollama completely (100% GPU).
 -   In the chat ENTER was my friend. CMD+ENTER confused the model since it checked the whole codebase.
+-   The backend was created without any issues. Frontend didn't work as expected. Couldn't upload a file. Not sure what the issue was. Don't have much experience with it. Gave up.
+
+Working with Copilot (COMING SOON):
+
+-   ...
 
 <!-- TODO: Show screenshots of the 3 created web apps or trials -->
-
-Lorem ipsum
