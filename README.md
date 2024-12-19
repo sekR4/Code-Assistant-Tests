@@ -181,7 +181,7 @@ Then I 'Apply'. Discovered `ModuleNotFoundError: No module named 'ollama'`. Fixe
 Check if it worked
 
 ```bash
-uv run main.py
+uv run uvicorn main:app --reload
 curl -X POST http://localhost:8000/<PATH_MAY_VARY> -F file=@test_image.png
 ```
 
@@ -211,7 +211,10 @@ Follow up prompt:
 
 ## Results & Conclusion
 
-While working with Continue the Macbook got loud sometimes. Had to `brew services restart ollama` or stop ollama completely (100% GPU)
+While working with Continue:
+
+-   Macbook got loud sometimes. Had to `brew services restart ollama` or stop ollama completely (100% GPU).
+-   In the chat ENTER was my friend. CMD+ENTER confused the model since it checked the whole codebase.
 
 <!-- TODO: Show screenshots of the 3 created web apps or trials -->
 

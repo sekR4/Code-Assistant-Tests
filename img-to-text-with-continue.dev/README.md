@@ -6,9 +6,9 @@ We're using Ollama and this `.continue/config.json` settings.
 ...
   "models": [
     {
-      "model": "qwen2.5-coder",
+      "model": "vanilj/Phi-4",
       "provider": "ollama",
-      "title": "qwen2.5-coder"
+      "title": "vanilj/Phi-4"
     }
   ],
   "tabAutocompleteModel": {
