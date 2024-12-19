@@ -166,16 +166,29 @@ Initial prompt:
 
 > We've created a nice looking UI. Now let's move on to **Image to Text**. I initialized the uv project first and installed FastAPI for the backend (`cd backend && uv init && uv add fastapi`). Create the fastapi backend. It should accept an image as input from the frontend, send the image to the ollama model (you have an example for this) and receive the response from ollama. I also provided a test_image.png in `backend/`.
 
-Follow up prompts:
-...
+Follow up commands & prompts:
+Windsurf did all. Had nothing to do.✅
+
+Continue wanted me to work.
+
+```bash
+cd backend && mv hello.py main.py
+code main.py
+```
+
+Then I 'Apply'. Discovered `ModuleNotFoundError: No module named 'ollama'`. Fixed it quickly `uv add ollama`.
 
 Check if it worked
 
 ```bash
 uv run main.py
-
 curl -X POST http://localhost:8000/<PATH_MAY_VARY> -F file=@test_image.png
 ```
+
+The backend I created with Continue responded with `{"detail":"'description'"}` after I send this `curl -X POST http://localhost:8000/describe-image/ -F file=@test_image.png`.
+Changed `return {"description": response["description"]}` to `return {"description": response['message']['content']}`
+
+Then it worked.
 
 ### 3. Result Display
 
