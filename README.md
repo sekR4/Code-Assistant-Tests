@@ -10,9 +10,9 @@ Build small web app that accepts an image as input through an UI and returns a d
 
 <!-- TODO: Check if bold.DIY might be an interesting offline alternative for Continue -->
 
-## Brief Product Requirements
-
-> Note: We'll use these requirements as custom instructions for the code assistant within `.continuerules`, `.github/copilot-instructions.md` and `.windsurfrules`.
+We'll use Brief Product Requirements (click to see) as custom instructions for the code assistant within `.continuerules`, `.github/copilot-instructions.md` and `.windsurfrules`.
+<details>
+<summary>Brief Product Requirements</summary>
 
 ### Project overview
 
@@ -86,4 +86,14 @@ root/
 -   Install Node `brew install node` &  run `npx create-next-app@latest`. Name the app `frontend`
 -   Within `backend/` run `uv init` && `uv add fastapi` (don't use pip)
 
+</details>
+
+
+## Prompts I used
+
+Lorem ipsum
+
+
 ## Results & Conclusion
+
+Lorem ipsum
