@@ -166,6 +166,8 @@ Follow up prompt:
 
 ## Results & Conclusion
 
+While working with Continue the Macbook got loud sometimes. Had to `brew services restart ollama` or stop ollama completely (100% GPU)
+
 <!-- TODO: Show screenshots of the 3 created web apps or trials -->
 
 Lorem ipsum
