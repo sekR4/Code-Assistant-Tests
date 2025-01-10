@@ -97,6 +97,8 @@ Example prompt (so that you can read the conversation history better):
 
 I do the setup myself to not distract the model and to set some structure. Note: for each ai tool reference to files/folders via '@' or '#'. Don't just copy the prompt. Should help the model understand the context better.
 
+So for a replay, clone the repo and cd into the `img-to-text-with-<INSERT_TOOL_NAME>` folder and open VSC (Continue & Copilot) or Windsurf.
+
 ### 1. File Upload
 
 Preparation
