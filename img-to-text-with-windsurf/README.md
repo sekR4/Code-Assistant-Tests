@@ -54,8 +54,13 @@ npm run dev
 >In general it works. But it would also be nice to see the image which was uploaded. Let's add that.
 
 ## Conclusion
+See yourself
+![alt text](screenshot_webapp.png)
+
+
 Worked all nicely :)
 
 Shut down uvicorn and npm server via:
 ```bash
 pkill -9 -f "uvicorn|next"
+```
