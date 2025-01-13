@@ -36,10 +36,10 @@ const FileUploader = () => {
 
         try {
             console.log("Uploading file:", file);
-            
+
             const formData = new FormData();
             formData.append('file', file!);
-            const response = await axios.post('http://localhost:8000/describe-image/', formData, {
+            const response = await axios.post('http://localhost:8000/describe-image', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 
@@ -56,9 +56,9 @@ const FileUploader = () => {
 
     return (
         <div className="flex flex-col items-center p-4 space-y-4">
-            <div 
-                onDrop={handleDrop} 
-                onDragOver={(event) => event.preventDefault()} 
+            <div
+                onDrop={handleDrop}
+                onDragOver={(event) => event.preventDefault()}
                 className={`w-full h-64 border-dashed border-2 border-gray-300 rounded-md flex justify-center items-center ${file ? 'border-green-500' : ''}`}
             >
                 Drag and drop your image here or click to upload
@@ -75,7 +75,7 @@ const FileUploader = () => {
                 </p>
             )}
             {!loading && (
-                <button 
+                <button
                     onClick={handleSubmit}
                     disabled={!file || !validateFile()}
                     className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${!validateFile() ? 'opacity-50 cursor-not-allowed' : ''}`}
