@@ -4,9 +4,10 @@
 
 Build small web app that accepts an image as input through an UI and returns a description of the image. We'll tackle this task with:
 
--   Continue using self-hosted local models,
--   Github Copilot and
--   Windsurf.
+-   Continue (locally hosted models),
+-   Github Copilot,
+-   Windsurf,
+-   and Cline (locally hosted models).
 
 <!-- TODO: Check if bold.DIY might be an interesting offline alternative for Continue -->
 
@@ -163,3 +164,11 @@ Every tool had the same initial data and prompts. However, some tools seemed to 
 -   The backend was created without any issues. Frontend didn't work as expected. Couldn't upload a file. Not sure what the issue was. Don't have much experience with it. Gave up.
 
 ![](img-to-text-with-continue.dev/screenshot_webapp.png)
+
+### Cline ❌
+
+-   Same as Continue. Mac gets loud quickly with too much context
+-   No autocomplete like Copilot or Continue. Maybe combo Cline & Continue does the trick?
+-   Didn't even get the first prompt to work. Divide & Conquer wasn't possible. Cline always wanted to create frontend & backend at once.
+-   Context in `.clinerules` was always repeated. Yet, deleting and adding details into the prompt didn't help either.
+-   Gave up.
