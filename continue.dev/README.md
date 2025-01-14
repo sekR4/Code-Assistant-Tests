@@ -1,6 +1,12 @@
 # Continue (offline mode)
 
+<!-- TODO: Retry with official phi4 model (https://ollama.com/library/phi4) -->
+
 We're using Ollama and this `.continue/config.json` settings.
+
+```zsh
+ollama pull phi4
+```
 
 ```json
 ...
@@ -35,7 +41,7 @@ Select code you want to edit, push CMD + I. It appears in the sidebar. Then prom
 
 ## Additional commands & prompts
 
-### 1. File Upload 
+### 1. File Upload
 
 ```bash
 mkdir -p frontend/app/components
@@ -98,6 +104,7 @@ Changed `return {"description": response["description"]}` to `return {"descripti
 Then it worked.
 
 ### 3. Result Display
+
 Here we got lost completely.
 
 > Can't u handle the changes u suggested within @page.tsx, @FileUploader.tsx and @main.py?
@@ -116,7 +123,3 @@ It looks like it works. Yet I couldn't push the Upload button.
 And even funnier, the flow was different. I was able to drag an image into the empty space and then I could push the Upload button. However, this ended in an error message.
 
 ![alt text](screenshot_error.png)
-
-
-
-

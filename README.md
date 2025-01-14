@@ -97,8 +97,7 @@ Example prompt (so that you can read the conversation history better):
 
 I do the setup myself to not distract the model and to set some structure. Note: for each ai tool reference to files/folders via '@' or '#'. Don't just copy the prompt. Should help the model understand the context better.
 
-So for a replay, clone the repo and cd into the `img-to-text-with-<INSERT_TOOL_NAME>` folder and open VSC (Continue & Copilot) or Windsurf.
-
+So for a replay, clone the repo and cd into the ai-tool folder and open VSC (Continue, Copilot, Cline) or Windsurf.
 
 Note, for some tools follow-up commands & prompts were necessary. I documented them in corresponding README.md files.
 
@@ -129,19 +128,17 @@ Initial prompt:
 
 > We've created a nice looking UI. Now let's move on to **Image to Text**. I initialized the uv project first and installed FastAPI for the backend (`cd backend && uv init && uv add fastapi`). Create the fastapi backend. It should accept an image as input from the frontend, send the image to the ollama model (you have an example for this) and receive the response from ollama. I also provided a test_image.png in `backend/`.
 
-
 ### 3. Result Display
 
 > Frontend seems to work and the backend as well (both are turned off at the moment). Now let's work on **Result Display**.
-
 
 Follow up prompt:
 
 > In general it works. But it would also be nice to see the image which was uploaded. Let's add that.
 
 ## Results & Conclusion
-Every tool had the same initial data and prompts. However, some tools seemed to understand better what I wanted. I was a bit surprised, that Github Copilot Edits in combination with o1 performed so much worse than Claude in Windsurf. I assume it's not just the model, but the context and how it is processed. It could also be that my .*rules had too many characters. 
 
+Every tool had the same initial data and prompts. However, some tools seemed to understand better what I wanted. I was a bit surprised, that Github Copilot Edits in combination with o1 performed so much worse than Claude in Windsurf. I assume it's not just the model, but the context and how it is processed. It could also be that my .\*rules had too many characters.
 
 ### Windsurf ✅
 
@@ -153,12 +150,11 @@ Every tool had the same initial data and prompts. However, some tools seemed to 
 
 ### Github Copilot ✅
 
-- Took a bit longer. But it worked.
-- Together we could fix some issues. Didn't get stuck.
-- NOTE: I used Copilot Edits which is currently still a preview version.
+-   Took a bit longer. But it worked.
+-   Together we could fix some issues. Didn't get stuck.
+-   NOTE: I used Copilot Edits which is currently still a preview version.
 
 ![](img-to-text-with-copilot/screenshot_webapp.png)
-
 
 ### Continue ❌
 
@@ -167,4 +163,3 @@ Every tool had the same initial data and prompts. However, some tools seemed to 
 -   The backend was created without any issues. Frontend didn't work as expected. Couldn't upload a file. Not sure what the issue was. Don't have much experience with it. Gave up.
 
 ![](img-to-text-with-continue.dev/screenshot_webapp.png)
-
