@@ -112,7 +112,7 @@ npx create-next-app@latest frontend
 
 Initial prompt:
 
-> I created the nextjs project within `img-to-text-with-<INSERT_TOOL_NAME>/frontend`. Help me implementing the **File Upload** feature. Note, we'll work on `img-to-text-with-<INSERT_TOOL_NAME>/backend` after that.
+> I created the nextjs project within `frontend/`. Help me implementing the **File Upload** feature. Note, we'll work on `backend/` after that.
 
 ### 2. Image to Text
 
