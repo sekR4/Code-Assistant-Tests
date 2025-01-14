@@ -147,7 +147,7 @@ Every tool had the same initial data and prompts. However, some tools seemed to 
 -   Fast iterations. Fixed issues automagically.
 -   Created a nice looking web app that did what I wanted.
 
-![](img-to-text-with-windsurf/screenshot_webapp.png)
+![](windsurf/screenshot_webapp.png)
 
 ### Github Copilot ✅
 
@@ -155,7 +155,7 @@ Every tool had the same initial data and prompts. However, some tools seemed to 
 -   Together we could fix some issues. Didn't get stuck.
 -   NOTE: I used Copilot Edits which is currently still a preview version.
 
-![](img-to-text-with-copilot/screenshot_webapp.png)
+![](copilot/screenshot_webapp.png)
 
 ### Continue ❌
 
@@ -163,7 +163,7 @@ Every tool had the same initial data and prompts. However, some tools seemed to 
 -   In the chat ENTER was my friend. CMD+ENTER confused the model since it checked the whole codebase.
 -   The backend was created without any issues. Frontend didn't work as expected. Couldn't upload a file. Not sure what the issue was. Don't have much experience with it. Gave up.
 
-![](img-to-text-with-continue.dev/screenshot_webapp.png)
+![](continue.dev/screenshot_webapp.png)
 
 ### Cline ❌
 
