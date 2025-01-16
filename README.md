@@ -11,7 +11,7 @@ Build small web app that accepts an image as input through an UI and returns a d
 
 <!-- TODO: Check if bold.DIY might be an interesting offline alternative for Continue -->
 
-We'll use Brief Product Requirements (click to see) as custom instructions for the code assistant within `.continuerules`, `.github/copilot-instructions.md` and `.windsurfrules`.
+We'll use Brief Product Requirements (click to see) as custom instructions for the code assistant within `.continuerules`, `.github/copilot-instructions.md`, `.windsurfrules` and `.clinerules`.
 
 <details>
 <summary>Brief Product Requirements</summary>
@@ -102,28 +102,39 @@ So for a replay, clone the repo and cd into the ai-tool folder and open VSC (Con
 
 Note, for some tools follow-up commands & prompts were necessary. I documented them in corresponding README.md files.
 
-### 1. File Upload
+**Preparations**
 
-Preparation
+```zsh
+# Install llama3.2-vision (if you don't already have it)
+ollama pull llama3.2-vision
 
-```bash
-cd img-to-text-with-<INSERT_TOOL_NAME>
+# Move test_image.png into the ai-tool folder
+cp test_image.png <INSERT_TOOL_NAME>/backend
+
+# Move into the ai-tool folder
+cd <INSERT_TOOL_NAME> # e.g. cd copilot
+
+# Create backend
+mkdir backend && cd backend
+uv init && uv add fastapi ollama
+mv hello.py main.py
+
+# Move test_image.png into the ai-tool/backend folder
+cp ../../test_image.png .
+
+# Create frontend (Yes to all defaults)
+cd ..
 npx create-next-app@latest frontend
 ```
+
+
+### 1. File Upload
 
 Initial prompt:
 
 > I created the nextjs project within `frontend/`. Help me implementing the **File Upload** feature. Note, we'll work on `backend/` after that.
 
 ### 2. Image to Text
-
-Preparation
-
-```bash
-ollama pull llama3.2-vision # if you don't already have it
-cp test_image.png img-to-text-with-<INSERT_TOOL_NAME>/backend
-cd img-to-text-with-<INSERT_TOOL_NAME>/backend && uv init && uv add fastapi
-```
 
 Initial prompt:
 
@@ -133,7 +144,7 @@ Initial prompt:
 
 > Frontend seems to work and the backend as well (both are turned off at the moment). Now let's work on **Result Display**.
 
-Follow up prompt:
+Follow up prompt (bonus):
 
 > In general it works. But it would also be nice to see the image which was uploaded. Let's add that.
 
