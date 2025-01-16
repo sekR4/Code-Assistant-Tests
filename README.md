@@ -90,6 +90,75 @@ root/
 
 </details>
 
+## Detailed Instructions for Setting Up and Running the App
+
+### Step-by-Step Instructions for Installing Dependencies
+
+1. **Install Node.js and npm**: If you don't have Node.js and npm installed, you can install them using Homebrew:
+    ```bash
+    brew install node
+    ```
+
+2. **Install Python and pip**: If you don't have Python and pip installed, you can install them using Homebrew:
+    ```bash
+    brew install python
+    ```
+
+3. **Install Ollama**: If you don't have Ollama installed, you can install it using pip:
+    ```bash
+    pip install ollama
+    ```
+
+4. **Install FastAPI and Uvicorn**: If you don't have FastAPI and Uvicorn installed, you can install them using pip:
+    ```bash
+    pip install fastapi uvicorn
+    ```
+
+5. **Install Next.js**: If you don't have Next.js installed, you can install it using npm:
+    ```bash
+    npx create-next-app@latest
+    ```
+
+### Instructions for Starting the Development Servers
+
+1. **Start the Backend Server**:
+    ```bash
+    cd backend
+    uvicorn main:app --reload
+    ```
+
+2. **Start the Frontend Server**:
+    ```bash
+    cd frontend
+    npm run dev
+    ```
+
+3. **Access the App**: Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the app.
+
+### Troubleshooting Tips and Common Issues
+
+1. **Backend Server Not Starting**:
+    - Ensure that you have installed all the required dependencies.
+    - Check if the port 8000 is already in use. If so, you can specify a different port using the `--port` option:
+        ```bash
+        uvicorn main:app --reload --port 8001
+        ```
+
+2. **Frontend Server Not Starting**:
+    - Ensure that you have installed all the required dependencies.
+    - Check if the port 3000 is already in use. If so, you can specify a different port using the `-p` option:
+        ```bash
+        npm run dev -p 3001
+        ```
+
+3. **Issues with File Upload**:
+    - Ensure that the file type and size are within the allowed limits (png, jpg, jpeg; max 5MB).
+    - Check the browser console for any error messages.
+
+4. **Issues with Image Description**:
+    - Ensure that the backend server is running and accessible.
+    - Check the backend server logs for any error messages.
+
 ## Prompts I used
 
 Example prompt (so that you can read the conversation history better):
