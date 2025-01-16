@@ -108,9 +108,6 @@ Note, for some tools follow-up commands & prompts were necessary. I documented t
 # Install llama3.2-vision (if you don't already have it)
 ollama pull llama3.2-vision
 
-# Move test_image.png into the ai-tool folder
-cp test_image.png <INSERT_TOOL_NAME>/backend
-
 # Move into the ai-tool folder
 cd <INSERT_TOOL_NAME> # e.g. cd copilot
 
